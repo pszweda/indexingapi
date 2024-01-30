@@ -9,6 +9,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const indexingApi = require("./function");
+const expressBasicAuth = require("express-basic-auth");
 
 /**
  * App Variables
@@ -27,6 +28,11 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(expressBasicAuth({
+  challenge: true,
+  users: { 'yachtic': 'cyberstudio' }
+}));
 
 /**
  * Routes Definitions
