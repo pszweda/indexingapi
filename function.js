@@ -1,6 +1,6 @@
 var request = require("request");
 var { google } = require("googleapis");
-var key = require("./service_account.json");
+var key = require("/etc/secrets/service_account.json");
 
 async function indexingApi(urls, callback) {
   const jwtClient = new google.auth.JWT(
