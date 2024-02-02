@@ -1,6 +1,7 @@
 var request = require("request");
 var { google } = require("googleapis");
-var key = require("/etc/secrets/service_account.json");
+require('dotenv-flow').config();
+var key = require(process.env.SECRETS_DESTINATION);
 
 async function indexingApi(urls, callback) {
   const jwtClient = new google.auth.JWT(

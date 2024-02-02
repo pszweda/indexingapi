@@ -1,0 +1,10 @@
+extends layout
+
+block layout-content
+    div.home-container
+        div.form-wrapper
+            h1 Indexing API - load File 
+            form(action="/load-data" method="POST" enctype="multipart/form-data")
+                input(type="file" accept=".csv" required name="fileToParse")
+                br
+                input(type="submit" value="Załaduj plik")
