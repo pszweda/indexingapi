@@ -3,3 +3,4 @@ package-lock.json
 service_account.json
 .env
 .env.local
+uploads/
