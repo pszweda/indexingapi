@@ -61,7 +61,7 @@ async function parseLinks() {
 
   if (itemsDoneTodayCount >= process.env.ITEMS_TO_PROCESS_PER_DAY) {
     console.warn('Items to process limit was exceded. Script stopped.');
-    process.exit();
+    return 0;
   }
   
 
