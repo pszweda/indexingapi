@@ -68,3 +68,6 @@ code {
 .footer {
   padding: 40px;
 }
+.bold {
+  font-weight: bold;
+}

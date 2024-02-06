@@ -3,7 +3,13 @@ extends layout
 block layout-content
     div.home-container
         div.form-wrapper
-            h1 Indexing API - load File 
+            h1 Indexing API - załaduj plik
+            hr
+            p.bold Statystyki:
+            p Zakolekowano: !{itemsInQueue}
+            p Dzisiaj przeprocesowano: !{itemsQueuedToday}
+            hr
+            p.bold Załaduj kolejny plik
             form(action="/load-data" method="POST" enctype="multipart/form-data")
                 input(type="file" accept=".csv" required name="fileToParse")
                 br

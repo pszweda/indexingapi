@@ -1,3 +1,10 @@
+# Fork rozszerzający bazową funkcjonalność Google Indexing API autorstrwa Marka Foltasa
+Zostały dodane następujące funkcjonalności: 
+
+1. Wrzut danych poprzez plik CSV 
+2. Można dodac dowolną ilość linków - jest to zapisywane w bazie i następnie (poprzez np. cron'a) codziennie puszczane do Google Indexing API. 
+
+
 # Google Indexing API
 **Cieszę się, że trafiłeś na to repozytorium. Jeżeli uważasz, że narzędzie jest przydatne to możesz postawić mi kawę na Buy Me A Coffe :)**
 

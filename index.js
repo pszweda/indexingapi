@@ -9,11 +9,13 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-const indexingApi = require("./function");
+const indexingApi = require("./src/function");
 const expressBasicAuth = require("express-basic-auth");
 const multer  = require('multer');
-const parseFileToDatabase = require('./fileParsingToDatabase');
-const database = require('./databaseConnection');
+const parseFileToDatabase = require('./src/fileParsingToDatabase');
+const database = require('./src/databaseConnection');
+const { itemsInQueueCount, itemsDoneToday } = require('./src/queueStatus');
+const { parseLinks } = require('./src/toIndexFromApi');
 
 /**
  * App Variables
@@ -45,12 +47,23 @@ app.use(expressBasicAuth({
  * Routes Definitions
  */
 
-app.get("/", (req, res) => {
-  res.render("loadFile", { title: "Indexing API" });
+app.get("/", async (req, res) => {
+  res.render("loadFile", {
+    title: "Indexing API",
+    itemsInQueue: await itemsInQueueCount(),
+    itemsQueuedToday: await itemsDoneToday()
+  });
 });
 
 app.get("/custom", (req, res) => {
   res.render("index", { title: "Indexing API" });
+});
+
+app.get("/parse-links", async (req, res) => {
+  const parseLinksCount = await parseLinks();
+  res.render("parse-links-result", {
+    parsedLinks: parseLinksCount
+  })
 });
 
 app.post("/result", function (req, res) {
