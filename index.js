@@ -15,7 +15,7 @@ const multer  = require('multer');
 const parseFileToDatabase = require('./src/fileParsingToDatabase');
 const database = require('./src/databaseConnection');
 const { itemsInQueueCount, itemsDoneToday } = require('./src/queueStatus');
-const { parseLinks } = require('./src/toIndexFromApi');
+const { parseLinks } = require('./src/toIndexFromDatabase');
 
 /**
  * App Variables

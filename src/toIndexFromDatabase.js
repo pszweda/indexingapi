@@ -88,7 +88,7 @@ async function parseLinks() {
   const updateLinks = async (links) => {
     const ids = [...links.keys()].join(',');
 
-    await indexingApi(links, console.log)
+    await indexingApi(links, () => {});
 
     database.connection.query(
       `UPDATE links SET parsed_at = NOW() WHERE id IN (${ids})`,
